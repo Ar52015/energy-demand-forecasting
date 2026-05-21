@@ -20,6 +20,8 @@ class Settings(BaseSettings):
     }
     as_of_default: Literal["latest_in_store"] = "latest_in_store"
 
+    log_format: Literal["text", "json"] = "text"
+
 
 @lru_cache
 def get_settings() -> Settings:
