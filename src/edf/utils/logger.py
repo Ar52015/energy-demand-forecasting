@@ -1,0 +1,14 @@
+import logging
+import sys
+
+
+def setup_logging() -> None:
+    """ """
+
+    handler = logging.StreamHandler(sys.stdout)
+    formatter = logging.Formatter(
+        "%(asctime)s %(levelname)s %(name)s %(message)s",
+    )
+    handler.setFormatter(formatter)
+
+    logging.basicConfig(level=logging.INFO, handlers=[handler])
