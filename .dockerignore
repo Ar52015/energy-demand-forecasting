@@ -1,0 +1,12 @@
+.git/
+.venv/
+tests/
+.gitignore
+.pre-commit-config.yaml
+.python-version
+.claude/
+.mypy_cache/
+.ruff_cache/
+CLAUDE.md
+SCHEDULE.md
+LICENSE
