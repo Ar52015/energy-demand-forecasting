@@ -16,7 +16,7 @@ class Settings(BaseSettings):
     served_models: dict[str, Path] = {
         "forecaster": Path("models/forecaster.joblib"),
         "spike": Path("models/spike.joblib"),
-        "anamoly": Path("models/anamoly.joblib"),
+        "anomaly": Path("models/anomaly.joblib"),
     }
     as_of_default: Literal["latest_in_store"] = "latest_in_store"
 

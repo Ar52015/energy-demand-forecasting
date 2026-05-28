@@ -16,7 +16,7 @@ class ForecastRequest(BaseModel):
 
 class ForecastResponse(BaseModel):
     model: str
-    prediction: list[ForecastPoint]
+    predictions: list[ForecastPoint]
 
 
 class SpikeRequest(BaseModel):
@@ -36,7 +36,7 @@ class AnomalyRequest(BaseModel):
 
 
 class AnomalyResponse(BaseModel):
-    anamoly_score: float
+    anomaly_score: float
     residual_zscore: float
     is_anomaly: bool
     top_contributing_features: list[tuple[str, float]]
