@@ -5,9 +5,12 @@ from datetime import UTC, datetime, timedelta
 from fastapi import FastAPI, Request
 
 from edf.api.schemas import (
+    AnomalyRequest,
     AnomalyResponse,
     ForecastPoint,
+    ForecastRequest,
     ForecastResponse,
+    SpikeRequest,
     SpikeResponse,
 )
 from edf.utils.logger import setup_logging
@@ -34,9 +37,15 @@ def health() -> dict[str, str]:
     return {"status": "ok"}
 
 
-@app.get("/forecast")
-def forecast(request: Request, hours: int = 24) -> ForecastResponse:
+@app.post("/forecast")
+def forecast(
+    request: Request, hours: int = 24, body: ForecastRequest | None = None
+) -> ForecastResponse:
     """ """
+    # currently a stub
+    if body:
+        pass
+
     model = request.app.state.models["forecast"]
     start = datetime.now(UTC)
     predictions = [
@@ -54,9 +63,13 @@ def forecast(request: Request, hours: int = 24) -> ForecastResponse:
     )
 
 
-@app.get("/spike-probability")
-def spike_probability(request: Request) -> SpikeResponse:
+@app.post("/spike-probability")
+def spike_probability(request: Request, body: SpikeRequest | None = None) -> SpikeResponse:
     """ """
+    # currently a stub
+    if body:
+        pass
+
     return SpikeResponse(
         timestamp=datetime.now(UTC),
         probability=0.05,
@@ -65,9 +78,13 @@ def spike_probability(request: Request) -> SpikeResponse:
     )
 
 
-@app.get("/anomaly-score")
-def anomaly_score(request: Request) -> AnomalyResponse:
+@app.post("/anomaly-score")
+def anomaly_score(request: Request, body: AnomalyRequest | None = None) -> AnomalyResponse:
     """ """
+    # currently a stub
+    if body:
+        pass
+
     return AnomalyResponse(
         anomaly_score=0.0,
         residual_zscore=0.0,
